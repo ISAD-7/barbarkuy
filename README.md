@@ -11,6 +11,7 @@ PHP Framework CI dengan template dashboard AdminLTE dan sistem acl dari Ion Auth
 4. Kostumisasi `Ion Auth`: 
     * CRUD user
     * CRUD group
+    * Identity Login by `username` atau `email`.
 4. CRUD Generator MVC dari `Harviacode`.
 5. Kustomisasi `Harviacode`:
     * Exclude nama tabel `users`, `groups`, `users_groups` dan `menu` pada menu Select Table. 
@@ -19,6 +20,11 @@ PHP Framework CI dengan template dashboard AdminLTE dan sistem acl dari Ion Auth
     * Tambah fungsi `title` dan `description` pada setiap `View` dan `Breadcrumbs`.
     * Default `VIew` menggunakan `Datatables Bootstrap` template 
 6. Masih tahap sangat awal dan akan terus diperbarui
+
+## Akses Login
+Akses login default : 
+* Username : `administrator` atau `sic@stikombinaniaga.ac.id`.
+* Password : `password`. 
 
 ## Penutup
 Semoga bermanfaat.
