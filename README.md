@@ -18,8 +18,9 @@ PHP Framework CI dengan template dashboard AdminLTE dan sistem acl dari Ion Auth
     * Set default generator folder pada `./application`.
     * Tambah fungsi `Is Admin` pada semua file MVC, limitasi hanya bisa diakses oleh group `admin`.
     * Tambah fungsi `title` dan `description` pada setiap `View` dan `Breadcrumbs`.
-    * Default `VIew` menggunakan `Datatables Bootstrap` template 
-6. Masih tahap sangat awal dan akan terus diperbarui
+    * Default `View` menggunakan `Datatables Bootstrap` template.
+6. Database dump ada di folder `sql dump`.
+7. Masih tahap sangat awal dan akan terus diperbarui
 
 ## Akses Login
 Akses login default : 
