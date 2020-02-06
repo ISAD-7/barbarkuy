@@ -10,7 +10,7 @@
   
   <div class='box-header with-border'>
     <div class="row">
-      <div class="col-sm-4">
+      <div class="col-sm-4 col-md-4">
         <h4><i class="fa fa-user-plus"></i><b> <?php echo @$judul?> </b></h4>
       </div>
       <div class="col-sm-8 text-right">
@@ -43,26 +43,25 @@
           </div>
       </div>
 
-      <?php
-      if($identity_column!=='email') {
-          echo '<p>';
-          echo lang('create_user_identity_label', 'identity');
-          echo '<br />';
-          echo form_error('identity');
-          echo form_input($identity);
-          echo '</p>';
-      }
-      ?>
-
       <div class="form-group">
-          <label class="col-sm-3 control-label"><?php echo lang('create_user_company_label'); ?></label>
+          <label class="col-sm-3 control-label">User Name:</label>
           <div class="col-sm-8">
             <?php 
-            $data_company = array('id'=>'company','name'=>'company','class'=>'form-control','type'=>'text','placeholder'=>'Company'); 
-            echo form_input($data_company);
+            $data_username = array('id'=>'username','name'=>'username','class'=>'form-control','type'=>'text','placeholder'=>'User Name'); 
+            echo form_input($data_username);
             ?>
           </div>
       </div>
+
+      <?php
+      if($identity_column!=='email') { ?>
+          <div class="form-group">
+          <label class="col-sm-3 control-label"><?php echo lang('create_user_identity_label');?></label>
+            <div class="col-sm-8">
+              <?php echo form_input($identity, 'class="form-control" '); ?>
+            </div>
+          </div>
+      <?php } ?>
 
       <div class="form-group">
           <label class="col-sm-3 control-label"><?php echo lang('create_user_email_label'); ?></label>
@@ -70,6 +69,16 @@
             <?php 
             $data_email = array('id'=>'email','name'=>'email','class'=>'form-control','type'=>'email','placeholder'=>'Email'); 
             echo form_input($data_email);
+            ?>
+          </div>
+      </div>
+
+      <div class="form-group">
+          <label class="col-sm-3 control-label"><?php echo lang('create_user_company_label'); ?></label>
+          <div class="col-sm-8">
+            <?php 
+            $data_company = array('id'=>'company','name'=>'company','class'=>'form-control','type'=>'text','placeholder'=>'Company'); 
+            echo form_input($data_company);
             ?>
           </div>
       </div>

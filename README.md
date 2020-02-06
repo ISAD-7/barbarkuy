@@ -13,13 +13,11 @@ PHP Framework CI dengan template dashboard AdminLTE dan sistem acl dari Ion Auth
     * CRUD group
 4. CRUD Generator MVC dari `Harviacode`.
 5. Kustomisasi `Harviacode`:
-```
-    1. Exclude nama tabel `users`, `groups`, `users_groups` dan `menu` pada menu Select Table. 
-    2. Set default generator folder pada `./application`.
-    3. Tambah fungsi `Is Admin` pada semua file MVC, limitasi hanya bisa diakses oleh group `admin`.
-    4. Tambah fungsi `title` dan `description` pada setiap `View` dan `Breadcrumbs`.
-    5. Default `VIew` menggunakan `Datatables Bootstrap` template 
-```
+    * Exclude nama tabel `users`, `groups`, `users_groups` dan `menu` pada menu Select Table. 
+    * Set default generator folder pada `./application`.
+    * Tambah fungsi `Is Admin` pada semua file MVC, limitasi hanya bisa diakses oleh group `admin`.
+    * Tambah fungsi `title` dan `description` pada setiap `View` dan `Breadcrumbs`.
+    * Default `VIew` menggunakan `Datatables Bootstrap` template 
 6. Masih tahap sangat awal dan akan terus diperbarui
 
 ## Penutup

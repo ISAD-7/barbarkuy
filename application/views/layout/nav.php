@@ -11,14 +11,14 @@
         <!-- User Account: style can be found in dropdown.less -->
         <li class="dropdown user user-menu">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-        <img src="<?php echo base_url() ?>assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+        <img src="<?php echo base_url() ?>assets/dist/img/logoStikom.png" class="user-image" alt="User Image">
         <span class="hidden-xs"><?php echo $this->session->userdata('firstname')." ".$this->session->userdata('lastname'); ?></span>
       </a>
       
       <ul class="dropdown-menu">
         <!-- User image -->
         <li class="user-header">
-        <img src="<?php echo base_url() ?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        <img src="<?php echo base_url() ?>assets/dist/img/logoStikom.png" class="img-circle" alt="User Image">
           <p>
           <?php echo ucfirst($this->session->userdata('username')); ?>
             <small>Last Login : <?php echo date("d/m/Y - h:i:s", $this->session->userdata('last_login')); ?></small>
@@ -26,7 +26,7 @@
         </li>
       
         <!-- Menu Body -->
-        <li class="user-body">
+        <!-- <li class="user-body">
         <div class="col-xs-4 text-center">
           <a href="#">Followers</a>
         </div>
@@ -36,7 +36,7 @@
         <div class="col-xs-4 text-center">
           <a href="#">Friends</a>
         </div>
-        </li>
+        </li> -->
       
         <!-- Menu Footer-->
         <li class="user-footer">
@@ -52,9 +52,9 @@
         </li>
     
         <!-- Control Sidebar Toggle Button -->
-        <li>
+        <!-- <li>
           <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-        </li>
+        </li> -->
       </ul>
     </div>
   </nav>

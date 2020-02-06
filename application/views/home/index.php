@@ -11,7 +11,7 @@
 
         <center>
           <div class="jumbotron" style="padding: 35vh 0; background: transparent;">
-            <h2><b>Home</b> Page</h2>
+            <h2><b>Dashboard</b> Page</h2>
           </div>
         </center>
         

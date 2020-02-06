@@ -37,9 +37,23 @@
       </div>
 
       <div class="form-group">
+          <label class="col-sm-3 control-label"><?php echo lang('edit_user_username_label', 'username');?></label>
+          <div class="col-sm-8">
+            <?php echo form_input($username);?>
+          </div>
+      </div>
+
+      <div class="form-group">
           <label class="col-sm-3 control-label"><?php echo lang('edit_user_company_label', 'company');?></label>
           <div class="col-sm-8">
             <?php echo form_input($company);?>
+          </div>
+      </div>
+
+      <div class="form-group">
+          <label class="col-sm-3 control-label"><?php echo lang('edit_user_email_label', 'email');?></label>
+          <div class="col-sm-8">
+            <?php echo form_input($email);?>
           </div>
       </div>
 

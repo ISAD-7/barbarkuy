@@ -21,7 +21,7 @@ class Home extends CI_Controller
         else
         {
             $data = array(
-            'judul'         => "Home",
+            'judul'         => "Dashboard",
             'deskripsi'     => "Page",
             );
         }
