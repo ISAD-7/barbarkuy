@@ -9,12 +9,12 @@
   <?php if($message != ''){echo alert($message, $this->session->flashdata('type'));} ?>
   
   <div class='box-header with-border'>
-  	<div class="col-xs-6" style="padding:0;">
+  	<div class="col-sm-4" style="padding:0;">
 		<?php echo anchor('auth/create_user', '<strong><i class="fa fa-user-plus"></i></strong> Create User', 'class="btn btn-success"'); ?>
     </div>
-    <div class="col-xs-6 text-right">
-    	<h6>Powered by <i><b>Ion Auth</b></i></h6>
-	</div>
+    <div class="box-tools pull-right">
+    	<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+    </div><!-- /.box-tools -->
   </div><!-- /.box-header -->
 
   <div class='box-body'>
@@ -61,8 +61,11 @@
 <!-- <p><?php // echo anchor('auth/create_user', lang('index_create_user_link'))?> | <?php // echo anchor('auth/create_group', lang('index_create_group_link'))?></p> -->
 
 </div><!-- /.box-body -->
-<div class="box-footer">    
-</div>
+<div class="box-footer">
+	<div class="col-xs-12 text-right">
+    	<h6>Powered by <i><b>Ion Auth</b></i></h6>
+	</div> 
+</div><!-- /.box-footer-->
 </div><!-- /.box -->
 </div><!-- /.col -->
 </div><!-- /.row -->

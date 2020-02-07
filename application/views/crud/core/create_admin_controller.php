@@ -78,7 +78,7 @@ $string .="\n\n    public function index()
     }";
 }
     
-$string .= "\n\n    public function read(\$id) 
+$string .= "\n\n    public function read_".$c_url."(\$id) 
     {
         if (!\$this->ion_auth->logged_in())
         {
@@ -115,7 +115,7 @@ $string .= "\n\t\t\t    );
         }
     }
 
-    public function create() 
+    public function create_".$c_url."() 
     {
         if (!\$this->ion_auth->logged_in())
         {
@@ -138,7 +138,7 @@ $string .= "\n\t\t\t    );
             'deskripsi' => 'Create',
             'method' => 'POST',
             'button' => 'Create',
-            'action' => site_url('$c_url/create_action'),";
+            'action' => site_url('$c_url/create_action_".$c_url."'),";
 foreach ($all as $row) {
 $string .= "\n\t\t    '" . $row['column_name'] . "' => set_value('" . $row['column_name'] . "'),";
 }
@@ -147,15 +147,15 @@ $string .= "\n\t\t\t);
         \$this->template->load('template','$c_url/$v_form', \$data);
     }
     
-    public function create_action() 
+    public function create_action_".$c_url."() 
     {
         \$this->_rules();
 
         if (\$this->form_validation->run() == FALSE) {
             \$this->session->set_flashdata('message', validation_errors());
             \$this->session->set_flashdata('type', 'warning');
-            \$this->create();
-            redirect(site_url('$c_url/create'));
+            \$this->create_".$c_url."();
+            redirect(site_url('$c_url/create_".$c_url."'));
         } else {
             \$data = array(";
 foreach ($non_pk as $row) {
@@ -170,7 +170,7 @@ $string .= "\n\t\t    );
         }
     }
     
-    public function update(\$id) 
+    public function update_".$c_url."(\$id) 
     {
         \$row = \$this->".$m."->get_by_id(\$id);
         if (!\$this->ion_auth->logged_in())
@@ -194,7 +194,7 @@ $string .= "\n\t\t    );
             'deskripsi' => 'Edit',
             'method' => 'POST',
             'button' => 'Update',
-            'action' => site_url('$c_url/update_action'),";
+            'action' => site_url('$c_url/update_action_".$c_url."'),";
 foreach ($all as $row) {
     $string .= "\n\t\t    '" . $row['column_name'] . "' => set_value('" . $row['column_name'] . "', \$row->". $row['column_name']."),";
 }
@@ -207,15 +207,15 @@ $string .= "\n\t\t    );
         }
     }
     
-    public function update_action() 
+    public function update_action_".$c_url."() 
     {
         \$this->_rules();
 
         if (\$this->form_validation->run() == FALSE) {
             \$this->session->set_flashdata('message', validation_errors());
             \$this->session->set_flashdata('type', 'warning');
-            \$this->update(\$this->input->post('$pk', TRUE));
-            redirect(site_url('$c_url/update/'.\$this->input->post('$pk', TRUE)));
+            \$this->update_".$c_url."(\$this->input->post('$pk', TRUE));
+            redirect(site_url('$c_url/update_".$c_url."/'.\$this->input->post('$pk', TRUE)));
         } else {
             \$data = array(";
 foreach ($non_pk as $row) {
@@ -230,7 +230,7 @@ $string .= "\n\t\t    );
         }
     }
     
-    public function delete(\$id) 
+    public function delete_".$c_url."(\$id) 
     {   
         if (!\$this->ion_auth->logged_in())
         {

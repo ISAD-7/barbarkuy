@@ -440,11 +440,11 @@ class Auth extends CI_Controller {
         // validate form input
         $this->form_validation->set_rules('first_name', $this->lang->line('create_user_validation_fname_label'), 'required');
         $this->form_validation->set_rules('last_name', $this->lang->line('create_user_validation_lname_label'), 'required');
+		$this->form_validation->set_rules('username', $this->lang->line('create_user_validation_username_label'), 'required');
         if($identity_column!=='email')
         {
             $this->form_validation->set_rules('identity',$this->lang->line('create_user_validation_identity_label'),'required|is_unique['.$tables['users'].'.'.$identity_column.']');
             $this->form_validation->set_rules('email', $this->lang->line('create_user_validation_email_label'), 'required|valid_email');
-            $this->form_validation->set_rules('username', $this->lang->line('create_user_validation_username_label'), 'required');
         }
         else
         {
@@ -580,6 +580,14 @@ class Auth extends CI_Controller {
 			'readonly' => 'readonly',
 			'value' => $user->last_name,
 		);
+		$this->data['username'] = array(
+			'name'  => 'username',
+			'id'    => 'username',
+			'type'  => 'text',
+			'class' => 'form-control',
+			'readonly' => 'readonly',
+			'value' => $user->username,
+		);
 		$this->data['company'] = array(
 			'name'  => 'company',
 			'id'    => 'company',
@@ -643,8 +651,6 @@ class Auth extends CI_Controller {
 		$this->form_validation->set_rules('last_name', $this->lang->line('edit_user_validation_lname_label'), 'required');
 		$this->form_validation->set_rules('email', $this->lang->line('edit_user_validation_email_label'), 'required');
 		$this->form_validation->set_rules('username', $this->lang->line('edit_user_validation_username_label'), 'required');
-		$this->form_validation->set_rules('phone', $this->lang->line('edit_user_validation_phone_label'), 'required');
-		$this->form_validation->set_rules('company', $this->lang->line('edit_user_validation_company_label'), 'required');
 
 		if (isset($_POST) && !empty($_POST))
 		{
@@ -822,6 +828,47 @@ class Auth extends CI_Controller {
 			
 			$this->template->load('template', 'auth/list_group', $this->data);
 		}
+	}
+
+	// read a user
+	function read_group($id)
+	{
+		$this->data['title'] = "View Group";
+        $this->data['judul'] = "Group";
+		$this->data['deskripsi'] = "View";
+
+		if (!$this->ion_auth->logged_in() || (!$this->ion_auth->is_admin() && !($this->ion_auth->user()->row()->id == $id)))
+		{
+			// redirect to the access error page if not admin
+            $data = array(
+                'judul' => 'Error',
+                'deskripsi' => 'Access'
+            );
+            $this->template->load('template','errors/html/error_access', $data);
+		}
+
+		$user_groups = $this->ion_auth->group($id)->row();
+
+		// pass the user to the view
+		$this->data['group_name'] = array(
+			'name'  => 'group_name',
+			'id'    => 'group_name',
+			'type'  => 'text',
+			'class' => 'form-control',
+			'readonly' => 'readonly',
+			'value' => $user_groups->name,
+		);
+		$this->data['description'] = array(
+			'name'  => 'description',
+			'id'    => 'description',
+			'type'  => 'text',
+			'class' => 'form-control',
+			'readonly' => 'readonly',
+			'value' => $user_groups->description,
+		);
+
+		$this->template->load('template', 'auth/read_group', $this->data);
+
 	}
 
 	// create a new group

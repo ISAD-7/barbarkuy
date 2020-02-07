@@ -34,14 +34,14 @@ class Menu extends CI_Controller
 
             $data = array(
                 'judul' => 'Menu',
-                'deskripsi' => 'Management',
+                'deskripsi' => 'Page',
                 'menu_data' => $menu
             );
             $this->template->load('template','menu/menu_list', $data);
         }
     }
 
-    public function read($id) 
+    public function read_menu($id) 
     {
         if (!$this->ion_auth->logged_in())
         {
@@ -70,7 +70,7 @@ class Menu extends CI_Controller
 			    'url' => $row->url,
 			    'icon' => $row->icon,
 			    'active' => $row->active,
-			    'parent_name' => $row->parent_name
+			    'parent_name' => $row->parent_name,
 			    );
             $this->template->load('template','menu/menu_read', $data);
             } else {
@@ -81,7 +81,7 @@ class Menu extends CI_Controller
         }
     }
 
-    public function create() 
+    public function create_menu() 
     {
         if (!$this->ion_auth->logged_in())
         {
@@ -104,7 +104,7 @@ class Menu extends CI_Controller
             'deskripsi' => 'Create',
             'method' => 'POST',
             'button' => 'Create',
-            'action' => site_url('menu/create_action'),
+            'action' => site_url('menu/create_action_menu'),
 		    'id' => set_value('id'),
 		    'name' => set_value('name'),
 		    'url' => set_value('url'),
@@ -116,15 +116,15 @@ class Menu extends CI_Controller
         $this->template->load('template','menu/menu_form', $data);
     }
     
-    public function create_action() 
+    public function create_action_menu() 
     {
         $this->_rules();
 
         if ($this->form_validation->run() == FALSE) {
             $this->session->set_flashdata('message', validation_errors());
             $this->session->set_flashdata('type', 'warning');
-            $this->create();
-            redirect(site_url('menu/create'));
+            $this->create_menu();
+            redirect(site_url('menu/create_menu'));
         } else {
             $data = array(
 		    'name' => $this->input->post('name',TRUE),
@@ -141,7 +141,7 @@ class Menu extends CI_Controller
         }
     }
     
-    public function update($id) 
+    public function update_menu($id) 
     {
         $row = $this->Menu_model->get_by_id($id);
         if (!$this->ion_auth->logged_in())
@@ -165,7 +165,7 @@ class Menu extends CI_Controller
             'deskripsi' => 'Edit',
             'method' => 'POST',
             'button' => 'Update',
-            'action' => site_url('menu/update_action'),
+            'action' => site_url('menu/update_action_menu'),
 		    'id' => set_value('id', $row->id),
 		    'name' => set_value('name', $row->name),
 		    'url' => set_value('url', $row->url),
@@ -181,15 +181,15 @@ class Menu extends CI_Controller
         }
     }
     
-    public function update_action() 
+    public function update_action_menu() 
     {
         $this->_rules();
 
         if ($this->form_validation->run() == FALSE) {
             $this->session->set_flashdata('message', validation_errors());
             $this->session->set_flashdata('type', 'warning');
-            $this->update($this->input->post('id', TRUE));
-            redirect(site_url('menu/update/'.$this->input->post('id', TRUE)));
+            $this->update_menu($this->input->post('id', TRUE));
+            redirect(site_url('menu/update_menu/'.$this->input->post('id', TRUE)));
         } else {
             $data = array(
 		    'name' => $this->input->post('name',TRUE),
@@ -206,7 +206,7 @@ class Menu extends CI_Controller
         }
     }
     
-    public function delete($id) 
+    public function delete_menu($id) 
     {   
         if (!$this->ion_auth->logged_in())
         {

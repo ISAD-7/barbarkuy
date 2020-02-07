@@ -9,14 +9,12 @@
   <?php if($this->session->flashdata('message')) { echo alert($this->session->flashdata('message'), $this->session->flashdata('type')); } ?>
 
   <div class='box-header with-border'>
-    <div class="row">
-      <div class="col-sm-4 col-md-4">
-        <h4><i class="fa fa-user-edit"></i><b> <?php echo @$judul?> </b></h4>
-      </div>
-      <div class="col-sm-8 text-right">
-        <h6 class="text-right">Powered by <i><b>Ion Auth</b></i></h6>
-      </div>
+    <div class="col-sm-4 col-md-4">
+      <h4><i class="fa fa-user-edit"></i><b> <?php echo @$judul?> </b></h4>
     </div>
+    <div class="box-tools pull-right">
+      <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+    </div><!-- /.box-tools -->
   </div><!-- /.box-header -->
 
   <div class="box-body">
@@ -33,6 +31,13 @@
         <label class="col-sm-3 control-label"><?php echo lang('edit_user_lname_label', 'last_name');?></label>
         <div class="col-sm-8">
           <?php echo form_input($last_name);?>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-3 control-label"><?php echo lang('edit_user_username_label', 'username');?></label>
+        <div class="col-sm-8">
+          <?php echo form_input($username);?>
         </div>
       </div>
 
@@ -69,8 +74,11 @@
   
   <div class="box-footer">
     <div class="row">
-      <div class="col-sm-12 col-md-12">
+      <div class="col-sm-12 col-md-6">
         <a href="<?php echo base_url('auth'); ?>" type="button" class="btn btn-default"><i class="fa fa-chevron-left"></i> Back</a> 
+      </div>
+      <div class="col-sm-12 col-md-6 text-right">
+        <h6>Powered by <i><b>Ion Auth</b></i></h6> 
       </div>
     </div>
   </div>

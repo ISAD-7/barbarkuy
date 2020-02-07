@@ -9,14 +9,12 @@
   <?php if($message != ''){echo alert($message, $this->session->flashdata('type'));} ?>
   
   <div class='box-header with-border'>
-    <div class="row">
       <div class="col-sm-4 col-md-4">
         <h4><i class="fa fa-user-plus"></i><b> <?php echo @$judul?> </b></h4>
       </div>
-      <div class="col-sm-8 text-right">
-        <h6 class="text-right">Powered by <i><b>Ion Auth</b></i></h6>
-      </div>
-    </div>
+      <div class="box-tools pull-right">
+        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+      </div><!-- /.box-tools -->
   </div><!-- /.box-header -->
 
   <?php echo form_open(uri_string(), 'class="form-horizontal"');?>
@@ -118,14 +116,15 @@
   </div><!-- /.box-body -->
   <div class="box-footer">
     <div class="row">
-      <div class="col-sm-12 col-md-4">
+      <div class="col-sm-12 col-md-8">
         <button type="submit" name="create_user_submit_btn" class="btn btn-primary"><i class="fa fa-check"></i> Submit</button> 
-      </div>
-      <div class="col-sm-12 col-md-8 text-right">
         <a href="<?php echo base_url('auth'); ?>" type="button" class="btn btn-default"><i class="fa fa-chevron-left"></i> Back</a> 
       </div>
+      <div class="col-sm-12 col-md-4 text-right">
+        <h6>Powered by <i><b>Ion Auth</b></i></h6>
+	    </div> 
     </div>
-  </div>
+  </div><!-- /.box-footer-->
 
   <?php echo form_close();?>
 

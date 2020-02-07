@@ -11,12 +11,11 @@ $string = "
   <?php if(\$this->session->flashdata('message')) { echo alert(\$this->session->flashdata('message'), \$this->session->flashdata('type')); } ?>
 
   <div class=\"box-header with-border\">
-     <div class=\"row\">
-       <div class=\"col-sm-4\">
-         <h4><b><?php echo @\$judul?></b></h4>
-       </div>
-     </div>
-  </div><!-- /.box-header -->
+    <h4 class=\"box-title\"><b><?php echo @\$judul?></b></h4>
+    <div class=\"box-tools pull-right\">
+      <button class=\"btn btn-box-tool\" data-widget=\"collapse\"><i class=\"fa fa-minus\"></i></button>
+    </div><!-- /.box-tools -->
+    </div><!-- /.box-header -->
 
   <div class=\"box-body\">
   <form class=\"form-horizontal\">";

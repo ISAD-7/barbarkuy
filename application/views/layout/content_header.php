@@ -11,10 +11,10 @@
 				<li><a href="<?php echo site_url(); ?>"><i class="fa fa-home"></i>Home</a></li>
 		  		<?php } 
 		  		elseif ($i == (count($this->session->flashdata('segment'))-1)) { ?>
-				<li class="active"> <?php echo ucfirst($this->session->flashdata('segment')[$i]); ?> </li>
-		  		<?php } 
+				<li class="active"> <?php echo "#".ucwords(str_replace("_"," ",$this->session->flashdata('segment')[$i])); ?> </li>
+		  		<?php }
 		  		else { ?>
-				<li> <?php echo ucfirst($this->session->flashdata('segment')[$i]); ?> </li>
+				<li> <?php echo ucwords(str_replace("_"," ",$this->session->flashdata('segment')[$i])); ?> </li>
 		  		<?php } 
 		  		if ($i == 0 && $i == (count($this->session->flashdata('segment'))-1)) { ?>
 				<li class="active"><a href="<?php site_url( $this->session->flashdata('segment') ); ?>"><?php echo @$judul; ?></a></li>

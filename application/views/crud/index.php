@@ -10,6 +10,12 @@ require_once 'core/process.php';
   <div class='row'>
   <div class='col-md-6 col-sm-12'>
   <div class='box box-default'>
+  <div class='box-header with-border'>
+    <h4><i class="fa fa-bolt"></i> <b>Generate</b></h4>
+    <div class="box-tools pull-right">
+    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+    </div><!-- /.box-tools -->
+  </div><!-- /.box-headers -->
 
   <form action="<?php echo base_url('crud'); ?>" method="POST">
   <div class='box-body'>
@@ -90,9 +96,9 @@ require_once 'core/process.php';
     <div class="col-xs-6">
       <h4><b>Generate Results</b></h4>
     </div>
-    <div class="col-xs-6 text-right">
-      <h6 class="pull-right">Powered by <i><b>Harviacode</b></i></h6>
-    </div>
+    <div class="box-tools pull-right">
+      <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+    </div><!-- /.box-tools -->
   </div><!-- /.box-header -->
 
   <div class="box-body">
@@ -105,6 +111,11 @@ require_once 'core/process.php';
   if($hasil != null){  
   echo   
   '</div><!-- /.box-body -->
+  <div class="box-footer">
+    <div class="col-xs-13 text-right">
+      <h6>Powered by <i><b>Harviacode</b></i></h6>
+    </div>
+  </div><!-- /.box-footer -->
   </div><!-- /.box -->
   </div><!-- /.col -->
   </div><!-- /.row -->';

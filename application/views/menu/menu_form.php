@@ -9,11 +9,10 @@
     <?php if($this->session->flashdata('message')) { echo alert($this->session->flashdata('message'), $this->session->flashdata('type')); } ?>
 
     <div class="box-header with-border">
-        <div class="row">
-        <div class="col-sm-4">
-            <h4><b><?php echo @$judul?></b></h4>
-        </div>
-        </div>
+    <h4 class="box-title"><b><?php echo @$judul?></b></h4>
+    <div class="box-tools pull-right">
+      <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+    </div><!-- /.box-tools -->
     </div><!-- /.box-header -->
 
     <div class="box-body">
@@ -72,15 +71,11 @@
           <label class="col-sm-3 control-label">Active</label>
             <div class="col-sm-8">
             <?php 
-            $array_active = array(
-              "type"=>"text",
-              "class"=>"form-control",
-              "name"=>"active",
-              "id"=>"active",
-              "placeholder"=>"Active",
-              "value"=>$active
-              ); 
-            echo form_input($array_active); ?>
+            $options = array(
+              "1"=>"ACTIVE",
+              "0"=>"INACTIVE"
+            );
+            echo form_dropdown('active', $options, $active, 'name="active" id="active" class="form-control"'); ?>
           </div>
         </div>
 		
@@ -89,14 +84,13 @@
             <div class="col-sm-8">
               <select name="parent" class="form-control">
                 <option value="0">YES</option>
+                <?php $menu = $this->db->get('menu'); foreach ($menu->result() as $m): ?>
                 <?php
-                $menu = $this->db->get('menu');
-                foreach ($menu->result() as $m){
                     echo "<option value='$m->id' ";
                     echo $m->id==$parent?'selected':'';
                     echo">".  strtoupper($m->name)."</option>";
-                }
                 ?>
+                <?php endforeach ?>
               </select>
             </div>
         </div>

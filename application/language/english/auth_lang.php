@@ -70,6 +70,7 @@ $lang['create_user_validation_fname_label']            = 'First Name';
 $lang['create_user_validation_lname_label']            = 'Last Name';
 $lang['create_user_validation_identity_label']         = 'Identity';
 $lang['create_user_validation_email_label']            = 'Email Address';
+$lang['create_user_validation_username_label']         = 'User Name';
 $lang['create_user_validation_phone_label']            = 'Phone';
 $lang['create_user_validation_company_label']          = 'Company Name';
 $lang['create_user_validation_password_label']         = 'Password';

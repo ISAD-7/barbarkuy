@@ -22,10 +22,10 @@
       <li class="header"><i class="fa fa-bars"></i> &nbsp;MENU</li>
       <!-- Optionally, you can add icons to the links -->
     
-
       <?php // Menu dinamis tiga layer
       $menu = $this->db->get_where('menu', array('parent' => 0,'active'=>1));
 
+      if ($this->ion_auth->is_admin()) {
         // layer ke satu
         foreach ($menu->result() as $m) {        
           $submenu = $this->db->get_where('menu',array('parent'=>$m->id,'active'=>1));
@@ -36,6 +36,7 @@
             echo anchor($m->url, '<i class="'.$m->icon.'"></i><span>'.ucfirst($m->name).'</span><i class="fa fa-angle-left pull-right"></i>');
             echo '<ul class="treeview-menu">';
               
+              if ($this->ion_auth->is_admin()) {
               // layer ke dua
               foreach ($submenu->result() as $s) {
                 $sub = $this->db->get_where('menu',array('parent'=>$s->id,'active'=>1));
@@ -45,10 +46,12 @@
                 echo '<li class="treeview">';
                 echo anchor($s->url, '<i class="'.$s->icon.'"></i><span>'.ucfirst($s->name).'</span><i class="fa fa-angle-left pull-right"></i>');
                 echo '<ul class="treeview-menu">';
-                  
-                  // layer ke tiga
-                  foreach ($sub->result() as $c){
-                  echo '<li class="treeview">'.anchor($c->url, '<i class="'.$c->icon.'"></i><span> '.ucfirst($c->name).'</span>').'</li>';
+
+                  if ($this->ion_auth->is_admin()) {  
+                    // layer ke tiga
+                    foreach ($sub->result() as $c){
+                    echo '<li class="treeview">'.anchor($c->url, '<i class="'.$c->icon.'"></i><span> '.ucfirst($c->name).'</span>').'</li>';
+                    }
                   }
 
                 echo '</ul>';
@@ -57,6 +60,7 @@
                 echo '<li>'.anchor($s->url, '<i class="'.$s->icon.'"></i><span> '.ucfirst($s->name).'</span>').'</li>';
                 }
               }
+              }
 
             echo '</ul>';
             echo '</li>';
@@ -64,6 +68,8 @@
             echo '<li>'.anchor($m->url, '<i class="'.$m->icon.'"></i><span> '.ucfirst($m->name).'</span>').'</li>';
           }
         }
+        
+      }
       ?>
 
       <!-- Menu Administrator -->

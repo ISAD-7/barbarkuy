@@ -43,7 +43,7 @@ class CRUDS
     function table_list()
     {
         // Query table execpt users, users_groups, groups, menu, login_attempts
-        $query = "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME NOT LIKE 'users' AND TABLE_NAME NOT LIKE 'users_groups' AND TABLE_NAME NOT LIKE 'menu' AND TABLE_NAME NOT LIKE 'groups' AND TABLE_NAME NOT LIKE 'login_attempts' AND TABLE_SCHEMA=?";
+        $query = "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME NOT LIKE 'users' AND TABLE_NAME NOT LIKE 'users_groups' AND TABLE_NAME NOT LIKE 'groups' AND TABLE_NAME NOT LIKE 'login_attempts' AND TABLE_SCHEMA=?";
         $stmt = $this->sql->prepare($query) OR die("Error code :" . $this->sql->errno . " (not_primary_field)");
         $stmt->bind_param('s', $this->database);
         $stmt->bind_result($table_name);
