@@ -4,7 +4,7 @@ Code Igniter Automation
 ## Informasi 
 PHP Framework CI dengan template dashboard AdminLTE dan sistem acl dari Ion Auth serta custom CRUD Generator.
 
-## Initial - 9/2/2020
+## Update - 9/2/2020
 1. Penambahan `fontawesome iconpicker` pada `form page`.
 2. Bugs fixed pada `CRUD Generator`.
 
