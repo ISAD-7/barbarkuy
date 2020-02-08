@@ -89,7 +89,7 @@
     });
 
     /* URL auto fill */
-    if( $('#url').val().length === 0){
+    if($('#url').val().length === 0){
       $('#url').val('#');
     };
     
