@@ -26,7 +26,7 @@ foreach ($non_pk as $row) {
           <label class=\"col-sm-3 control-label\">". label($row["column_name"]) ."</label>
             <div class=\"col-sm-8\">
             <?php 
-            \$array_".strtolower(label($row["column_name"]))." = array(
+            \$array_".strtolower($row["column_name"])." = array(
               \"type\"=>\"text\",
               \"class\"=>\"form-control\",
               \"name\"=>\"". $row["column_name"]."\",
@@ -34,7 +34,7 @@ foreach ($non_pk as $row) {
               \"placeholder\"=>\"".label($row["column_name"])."\",
               \"value\"=>\$".$row["column_name"]."
               ); 
-            echo form_input(\$array_".strtolower(label($row["column_name"]))."); ?>
+            echo form_input(\$array_".strtolower($row["column_name"])."); ?>
           </div>
         </div>";
     } elseif ($row["data_type"] == 'date' || $row["data_type"] == 'datetime') {
@@ -43,7 +43,7 @@ foreach ($non_pk as $row) {
           <label class=\"col-sm-3 control-label\">". label($row["column_name"]) ."</label>
             <div class=\"col-sm-8\">
             <?php 
-            \$array_".strtolower(label($row["column_name"]))." = array(
+            \$array_".strtolower($row["column_name"])." = array(
               \"type\"=>\"date\",
               \"class\"=>\"form-control\",
               \"name\"=>\"". $row["column_name"]."\",
@@ -51,7 +51,7 @@ foreach ($non_pk as $row) {
               \"placeholder\"=>\"".label($row["column_name"])."\",
               \"value\"=>\$".$row["column_name"]."
               ); 
-            echo form_input(\$array_".strtolower(label($row["column_name"]))."); ?>
+            echo form_input(\$array_".strtolower($row["column_name"])."); ?>
           </div>
         </div>";
     } else {
@@ -60,7 +60,7 @@ foreach ($non_pk as $row) {
           <label class=\"col-sm-3 control-label\">". label($row["column_name"]) ."</label>
             <div class=\"col-sm-8\">
             <?php 
-            \$array_".$row["column_name"]." = array(
+            \$array_".strtolower($row["column_name"])." = array(
               \"type\"=>\"text\",
               \"class\"=>\"form-control\",
               \"name\"=>\"". $row["column_name"]."\",
@@ -68,7 +68,7 @@ foreach ($non_pk as $row) {
               \"placeholder\"=>\"".label($row["column_name"])."\",
               \"value\"=>\$".$row["column_name"]."
               ); 
-            echo form_input(\$array_".$row["column_name"]."); ?>
+            echo form_input(\$array_".strtolower($row["column_name"])."); ?>
           </div>
         </div>";
     }

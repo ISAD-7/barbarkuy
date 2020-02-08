@@ -89,7 +89,9 @@
     });
 
     /* URL auto fill */
-    $('#url').val('#');
+    if( $('#url').val().length === 0){
+      $('#url').val('#');
+    };
     
     });
   };

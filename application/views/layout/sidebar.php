@@ -32,7 +32,7 @@
           if($submenu->num_rows()>0){
             // tampilkan submenu
             echo '<li class="treeview">';
-            echo anchor($m->url, '<i class="'.$m->icon.'"></i><span>'.ucfirst($m->name).'</span><i class="fa fa-angle-left pull-right"></i>');
+            echo anchor($m->url, '<i class="'.$m->icon.'"></i> <span>'.ucfirst($m->name).'</span><i class="fa fa-angle-left pull-right"></i>');
             echo '<ul class="treeview-menu">';
                             
               // layer ke dua
@@ -42,25 +42,25 @@
                 if($sub->num_rows()>0){
                 // tampilkan sub-submenu
                 echo '<li class="treeview">';
-                echo anchor($s->url, '<i class="'.$s->icon.'"></i><span>'.ucfirst($s->name).'</span><i class="fa fa-angle-left pull-right"></i>');
+                echo anchor($s->url, '<i class="'.$s->icon.'"></i> <span>'.ucfirst($s->name).'</span><i class="fa fa-angle-left pull-right"></i>');
                 echo '<ul class="treeview-menu">';
                   
                     // layer ke tiga
                     foreach ($sub->result() as $c){
-                    echo '<li class="treeview">'.anchor($c->url, '<i class="'.$c->icon.'"></i><span> '.ucfirst($c->name).'</span>').'</li>';
+                    echo '<li class="treeview">'.anchor($c->url, '<i class="'.$c->icon.'"></i> <span>'.ucfirst($c->name).'</span>').'</li>';
                     }
                   
                 echo '</ul>';
                 echo '</li>';
                 } else {
-                echo '<li>'.anchor($s->url, '<i class="'.$s->icon.'"></i><span> '.ucfirst($s->name).'</span>').'</li>';
+                echo '<li>'.anchor($s->url, '<i class="'.$s->icon.'"></i> <span>'.ucfirst($s->name).'</span>').'</li>';
                 }
               }              
 
             echo '</ul>';
             echo '</li>';
             } else {
-            echo '<li>'.anchor($m->url, '<i class="'.$m->icon.'"></i><span> '.ucfirst($m->name).'</span>').'</li>';
+            echo '<li>'.anchor($m->url, '<i class="'.$m->icon.'"></i> <span>'.ucfirst($m->name).'</span>').'</li>';
           }
         }              
       ?>
@@ -68,12 +68,12 @@
       <!-- Menu Administrator -->
       <?php if($this->ion_auth->is_admin()) { ?>                        
       <li class="treeview">
-        <a href="#"><i class="fa fa-cog"></i><span> Control Panel</span><i class="fa fa-angle-left pull-right"></i></a>
+        <a href="#"><i class="fa fa-cog"></i> <span>Control Panel</span><i class="fa fa-angle-left pull-right"></i></a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url('menu'); ?>"><i class="fa fa-bars"></i><span> Menu Management</span></a></li>
-            <li><a href="<?php echo base_url('auth'); ?>"><i class="fa fa-user"></i><span> User Management</span></a></li>
-            <li><a href="<?php echo base_url('auth/group_list'); ?>"><i class="fa fa-users"></i><span> Group Management</span></a></li>
-            <li><a href="<?php echo base_url('crud'); ?>"><i class="fa fa-code"></i><span> CRUD Generator</span></a></li>              
+            <li><a href="<?php echo base_url('menu'); ?>"><i class="fa fa-bars"></i> <span>Menu Management</span></a></li>
+            <li><a href="<?php echo base_url('auth'); ?>"><i class="fa fa-user"></i> <span>User Management</span></a></li>
+            <li><a href="<?php echo base_url('auth/group_list'); ?>"><i class="fa fa-users"></i> <span>Group Management</span></a></li>
+            <li><a href="<?php echo base_url('crud'); ?>"><i class="fa fa-code"></i> <span>CRUD Generator</span></a></li>              
           </ul>
       </li>
       <?php } ?>
@@ -81,7 +81,7 @@
       <li class="header"><i class="fa fa-sign-out"></i> EXIT</li>
 
       <li class="treeview">
-        <a href="<?php echo base_url('auth/logout'); ?>"><i class="fa fa-sign-out"></i><span> Log Out</span></a>
+        <a href="<?php echo base_url('auth/logout'); ?>"><i class="fa fa-sign-out"></i> <span>Log Out</span></a>
       </li>
 
     </ul>

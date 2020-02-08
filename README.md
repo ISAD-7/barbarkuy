@@ -4,6 +4,10 @@ Code Igniter Automation
 ## Informasi 
 PHP Framework CI dengan template dashboard AdminLTE dan sistem acl dari Ion Auth serta custom CRUD Generator.
 
+## Initial - 9/2/2020
+1. Penambahan `fontawesome iconpicker` pada `form page`.
+2. Bugs fixed pada `CRUD Generator`.
+
 ## Initial - 6/2/2020
 1. PHP Framework menggunakan `CodeIgniter`.
 2. Dashboard Template menggunakan `AdminLTE`.
@@ -26,6 +30,20 @@ PHP Framework CI dengan template dashboard AdminLTE dan sistem acl dari Ion Auth
 Akses login default : 
 * Username : `administrator` atau `sic@stikombinaniaga.ac.id`.
 * Password : `password`. 
+
+## Screenshots
+![Index Page](https://github.com/antoniusarie/CIA/blob/master/screenshot/1.png)
+![Index Page](https://github.com/antoniusarie/CIA/blob/master/screenshot/2.png)
+![Index Page](https://github.com/antoniusarie/CIA/blob/master/screenshot/3.png)
+![Index Page](https://github.com/antoniusarie/CIA/blob/master/screenshot/4.png)
+![Index Page](https://github.com/antoniusarie/CIA/blob/master/screenshot/5.png)
+![Index Page](https://github.com/antoniusarie/CIA/blob/master/screenshot/6.png)
+![Index Page](https://github.com/antoniusarie/CIA/blob/master/screenshot/7.png)
+![Index Page](https://github.com/antoniusarie/CIA/blob/master/screenshot/8.png)
+![Index Page](https://github.com/antoniusarie/CIA/blob/master/screenshot/9.png)
+![Index Page](https://github.com/antoniusarie/CIA/blob/master/screenshot/10.png)
+![Index Page](https://github.com/antoniusarie/CIA/blob/master/screenshot/11.png)
+![Index Page](https://github.com/antoniusarie/CIA/blob/master/screenshot/12.png)
 
 ## Penutup
 Semoga bermanfaat.

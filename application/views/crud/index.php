@@ -94,7 +94,7 @@ require_once 'core/process.php';
   <div class="box box-default">
   <div class="box-header with-border">
     <div class="col-xs-6">
-      <h4 class="box-title"><b>Generate Results</b></h4>
+      <h4 class="box-title"><i class="fa fa-bolt"></i> <b>Generate Results</b></h4>
     </div>
     <div class="box-tools pull-right">
       <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
