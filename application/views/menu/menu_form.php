@@ -36,7 +36,7 @@
         </div>
 		
         <div class="form-group">
-          <label class="col-sm-3 control-label">Url</label>
+          <label class="col-sm-3 control-label">URL</label>
             <div class="col-sm-8">
             <?php 
             $array_url = array(
@@ -52,18 +52,23 @@
         </div>
 		
         <div class="form-group">
-          <label class="col-sm-3 control-label">Icon</label>
-            <div class="col-sm-8">
+          <label class="col-sm-3 col-md-3 control-label">Icon</label>
+            <div class="col-sm-8 col-md-8">
+            <!-- <div class="input-group form-group"> -->
             <?php 
             $array_icon = array(
               "type"=>"text",
-              "class"=>"form-control",
+              "class"=>"form-control iconpicker", 
+              "data-input-search"=>"true", 
+              "data-placement"=>"bottomRight",
               "name"=>"icon",
               "id"=>"icon",
               "placeholder"=>"Icon",
+              "style"=>"cursor:pointer",
               "value"=>$icon
               ); 
             echo form_input($array_icon); ?>
+            <!-- </div> -->
           </div>
         </div>
 		

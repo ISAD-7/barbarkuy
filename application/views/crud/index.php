@@ -7,11 +7,11 @@ require_once 'core/process.php';
 <!-- Main content -->
 <section class='content'>
 
-  <div class='row'>
-  <div class='col-md-6 col-sm-12'>
+  <div class="row">
+  <div class='col-sm-12 col-md-6'>
   <div class='box box-default'>
   <div class='box-header with-border'>
-    <h4><i class="fa fa-bolt"></i> <b>Generate</b></h4>
+    <h4 class="box-title"><i class="fa fa-bolt"></i> <b>Generate</b></h4>
     <div class="box-tools pull-right">
     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
     </div><!-- /.box-tools -->
@@ -63,25 +63,25 @@ require_once 'core/process.php';
           <div class="checkbox">
             <?php $admin_page = isset($_POST['admin_page']) ? $_POST['admin_page'] : ''; ?>
               <label><input type="checkbox" name="admin_page" value="1" <?php echo $admin_page=='1' ? 'checked' : '' ?>>
-                <b>Is Admin </b> <superscript><i class="fa fa-question-circle class="data-toggle="tooltip" data-placement="right" title="If checked, only admin can access view page"></i></superscript>
+                <b>Is Admin </b> <superscript><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="right" title="If checked, only admin group can access menu and view page"></i></superscript>
               </label>
           </div>
         </div>
 
        </div>
     </div>
+
   </div><!-- /.box-body -->
   
   <div class="box-footer">
-    <div class="row">
-      <div class="col-sm-12 text-right">
-        <button type="submit" name="generate" class="btn btn-primary" onclick="javascript: return confirm('This will overwrite the existing files. Continue ?')" />
-          <i class="fa fa-code"></i> Generate
-        </button>
-      </div>  
-      <input type="hidden" name="jenis_tabel" value="datatables">
-    </div>
+    <div class="col-sm-12 text-right">
+      <button type="submit" name="generate" class="btn btn-primary" onclick="javascript: return confirm('This will overwrite the existing files. Continue ?')">
+        <i class="fa fa-code"></i> Generate
+      </button>
+    </div>  
+    <input type="hidden" name="jenis_tabel" value="datatables">
   </div><!-- /box-footer -->
+
   </form><!-- /form -->
   
   </div><!-- /.box -->
@@ -94,7 +94,7 @@ require_once 'core/process.php';
   <div class="box box-default">
   <div class="box-header with-border">
     <div class="col-xs-6">
-      <h4><b>Generate Results</b></h4>
+      <h4 class="box-title"><b>Generate Results</b></h4>
     </div>
     <div class="box-tools pull-right">
       <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
@@ -117,10 +117,11 @@ require_once 'core/process.php';
     </div>
   </div><!-- /.box-footer -->
   </div><!-- /.box -->
-  </div><!-- /.col -->
-  </div><!-- /.row -->';
+  </div><!-- /.col -->';
   }
   ?>
+
+  </div><!-- /.row -->
 
     <script type="text/javascript">
     function capitalize(s) {

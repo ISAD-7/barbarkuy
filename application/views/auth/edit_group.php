@@ -10,7 +10,7 @@
 
   <div class='box-header with-border'>
     <div class="col-sm-4 col-md-4">
-      <h4><i class="fa fa-users"></i><b> <?php echo @$judul?> </b></h4>
+      <h4 class="box-title"><i class="fa fa-users"></i><b> <?php echo @$judul?> </b></h4>
     </div>
     <div class="box-tools pull-right">
       <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>

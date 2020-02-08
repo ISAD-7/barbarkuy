@@ -81,6 +81,15 @@
       $('#alert-message').slideDown(1500);
         $('#alert-message').delay(2500).slideUp(1500);
     <?php } ?>
+
+    /* fontawesome iconpicker */
+    $(".iconpicker").iconpicker({
+      hideOnSelect: true,
+      animation: true,
+    });
+
+    /* URL auto fill */
+    $('#url').val('#');
     
     });
   };
