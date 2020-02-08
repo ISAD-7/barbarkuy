@@ -44,6 +44,8 @@ Akses login default :
 ![Index Page](https://github.com/antoniusarie/CIA/blob/master/screenshot/10.png)
 ![Index Page](https://github.com/antoniusarie/CIA/blob/master/screenshot/11.png)
 ![Index Page](https://github.com/antoniusarie/CIA/blob/master/screenshot/12.png)
+![Index Page](https://github.com/antoniusarie/CIA/blob/master/screenshot/13.png)
+![Index Page](https://github.com/antoniusarie/CIA/blob/master/screenshot/14.png)
 
 ## Penutup
 Semoga bermanfaat.
