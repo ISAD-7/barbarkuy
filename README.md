@@ -7,7 +7,9 @@ PHP Framework CI dengan template dashboard AdminLTE dan sistem acl dari Ion Auth
 ## Update - 9/2/2020
 1. Penambahan `fontawesome iconpicker` pada `form page`.
 2. Penambahan `screenshot`.
-3. Bugs fixed pada `CRUD Generator`.
+3. Penambahan `konfirmasi` menggunakan `bootstrap modal`.
+4. Bugs fixed pada `CRUD Generator`.
+
 
 ## Initial - 6/2/2020
 1. PHP Framework menggunakan `CodeIgniter`.

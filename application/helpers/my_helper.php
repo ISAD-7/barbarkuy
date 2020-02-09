@@ -85,4 +85,54 @@ function alert($message,$type){
     return $data;
 }
 
+// Modal Content
+function modal($content='', $id='', $data='', $size='') {
+    $_ci = &get_instance();
+    
+    if ($content != '') {
+    $view_content = $_ci->load->view($content, $data, TRUE);
+    return '
+    <div class="modal fade" id="' .$id .'" role="dialog">
+        <div class="modal-dialog modal-' .$size .'" role="document">
+            <div class="modal-content">
+            ' .$view_content .'
+            </div>
+        </div>
+    </div>
+    ';
+        }
+    }
+
+// Modal Confirm
+function confirm($url='', $id='', $class='', $body='', $title='') {
+$_ci = &get_instance();
+
+    if ($id != '') { echo '
+    <div class="modal fade" id="' .$id .'" role="dialog">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content" style="margin-top:25vh">
+        <div class="col-md-12 well">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times-circle"></i></button>
+                <h3 class="modal-title text-center"><i class="fa fa-warning"></i> '.$title.'</h3>
+            </div> 
+        <div class="modal-body">
+            <h4 class="text-center"><b>'.$body.'</h4>
+        </div>
+        <div class="modal-footer">
+            <div class="col-md-6">
+                <a href="'.$url.'" class="form-control btn btn-danger '.$class.'"> <i class="fa fa-check-circle"></i> Ya</a>
+            </div>
+            <div class="col-md-6">
+                <button class="form-control btn btn-primary" data-dismiss="modal"> <i class="fa fa-times-circle"></i> Tidak</button>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+    </div>
+    ';
+    }
+}
+
 ?>

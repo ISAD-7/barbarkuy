@@ -42,19 +42,18 @@ $string .= "\n\t\t\t\t    <td><?php echo ++\$start ?></td>";
 foreach ($non_pk as $row) {
     $string .= "\n\t\t\t\t    <td><?php echo $" . $c_url ."->". $row['column_name'] . " ?></td>";
 }
-
 $string .= "\n\t\t\t\t    <td style=\"text-align:center\" width=\"140px\">"
         . "\n\t\t\t\t    <?php "
         . "\n\t\t\t\t    echo anchor(site_url('".$c_url."/read_".$c_url."/'.$".$c_url."->".$pk."),'<i class=\"fa fa-eye\"></i>',array('title'=>'detail','class'=>'btn btn-info btn-sm')); "
         . "\n\t\t\t\t    echo '&nbsp;'; "
         . "\n\t\t\t\t    echo anchor(site_url('".$c_url."/update_".$c_url."/'.$".$c_url."->".$pk."),'<i class=\"fa fa-pencil-square-o\"></i>',array('title'=>'edit','class'=>'btn btn-warning btn-sm')); "
         . "\n\t\t\t\t    echo '&nbsp;'; "
-        . "\n\t\t\t\t    echo anchor(site_url('".$c_url."/delete_".$c_url."/'.$".$c_url."->".$pk."),'<i class=\"fa fa-trash-o\"></i>','title=\"delete\" class=\"btn btn-danger btn-sm\" onclick=\"javascript: return confirm(\\'Are You Sure ?\\')\"'); "
         . "\n\t\t\t\t    ?>"
-        . "\n\t\t\t\t    </td>";
+        . "\n\t\t\t\t    <button title=\"delete\" class=\"btn btn-danger btn-sm\" data-toggle=\"modal\" data-target=\"#confirm-delete\"><i class=\"fa fa-trash-o\"></i></button> "
+        . "\n\t\t\t\t    </td>"
 
-$string .= "\n\t\t\t    </tr>
-        \t<?php } ?>
+        . "\n\t\t\t    </tr>
+        \t<?php confirm('".$c_url."/delete_".$c_url."/'.$".$c_url."->".$pk.", 'confirm-delete', 'btn-delete', 'Anda yakin ingin hapus data ini ?', 'Peringatan !'); }?>
         \t</tbody>
         </table>
 
@@ -65,5 +64,4 @@ $string .= "\n\t\t\t    </tr>
         </section><!-- /.content -->";
 
 $hasil_view_list = generate_crud($string, $target ."views/" . $c_url . "/" . $v_list_file);
-
 ?>

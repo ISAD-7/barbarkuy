@@ -25,7 +25,7 @@
 	<script type="text/javascript">
   window.onload = function() {
     showAll();
-  }
+  };
 
   function showAll() {
     $(document).ready(function () {
@@ -93,6 +93,10 @@
       $('#url').val('#');
     };
     
-    });
+    }); // document ready
   };
+
+  $(document).on("click", ".btn-delete", function(e) {
+      $('#confirm-delete').modal('hide');
+  });
   </script>

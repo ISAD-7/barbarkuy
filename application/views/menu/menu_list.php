@@ -50,11 +50,11 @@
 				    echo '&nbsp;'; 
 				    echo anchor(site_url('menu/update_menu/'.$menu->id),'<i class="fa fa-pencil-square-o"></i>',array('title'=>'edit','class'=>'btn btn-warning btn-sm')); 
 				    echo '&nbsp;'; 
-				    echo anchor(site_url('menu/delete_menu/'.$menu->id),'<i class="fa fa-trash-o"></i>','title="delete" class="btn btn-danger btn-sm" onclick="javascript: return confirm(\'Are You Sure ?\')"'); 
-				    ?>
+                    ?>
+				    <button title="delete" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash-o"></i></button>
 				    </td>
 			    </tr>
-        	<?php } ?>
+        	<?php confirm('menu/delete_menu/'.$menu->id, 'confirm-delete', 'btn-delete', 'Anda ingin hapus data '.$menu->name.' ini ?', 'Peringatan !'); } ?>
         	</tbody>
         </table>
 
