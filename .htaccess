@@ -1,12 +1,20 @@
-<IfModule mod_rewrite.c>
-	RewriteEngine on
-	# ubah nilai RewriteBase menjadi 
-	# RewriteBase /
-	# saat menggunakan Top Level Domain (TLD) 
+<IfModule mod_rewrite.c>	
+# ubah nilai RewriteBase menjadi 
+# RewriteBase /
+# saat menggunakan Top Level Domain (TLD) 
 
-	RewriteBase /
+Options +FollowSymLinks
+Options -Indexes
 
-	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteCond %{REQUEST_FILENAME} !-d
-	RewriteRule ^(.*)$ index.php?/$1 [L]
+<FilesMatch "(?i)((\.tpl|\.ini|\.log|(?<!robots)\.txt))">
+    Order deny,allow
+    Deny from all
+</FilesMatch>
+
+RewriteEngine on
+RewriteBase /
+RewriteCond $1 !^(index\.php|images|robots\.txt)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L,QSA]
 </IfModule>
