@@ -23,6 +23,7 @@
 	<thead>
 	<tr>
 		<th class="text-center" width="80px">No</th>
+		<th class="text-center"><?php echo lang('index_username_th');?></th>
 		<th class="text-center"><?php echo lang('index_fname_th');?></th>
 		<th class="text-center"><?php echo lang('index_lname_th');?></th>
 		<th class="text-center"><?php echo lang('index_email_th');?></th>
@@ -37,6 +38,7 @@
 	foreach ($users as $user):?>
 		<tr>
 			<td><?php echo $no++ ;?></td>
+            <td><?php echo htmlspecialchars($user->username,ENT_QUOTES,'UTF-8');?></td>
             <td><?php echo htmlspecialchars($user->first_name,ENT_QUOTES,'UTF-8');?></td>
             <td><?php echo htmlspecialchars($user->last_name,ENT_QUOTES,'UTF-8');?></td>
             <td><?php echo htmlspecialchars($user->email,ENT_QUOTES,'UTF-8');?></td>
@@ -49,11 +51,30 @@
 			<?php echo ($user->active) ? anchor("auth/deactivate/".$user->id, '<i class="fa fa-check"></i> Active', array('title'=>'status','class'=>'btn btn-success btn-sm')) : anchor("auth/activate/". $user->id, '<i class="fa fa-times"></i> Deactivate', array('title'=>'status','class'=>'btn btn-danger btn-sm'));?>
 			</td>
 			<td class="text-center">
-			<?php echo anchor("auth/read_user/".$user->id, '<i class="fa fa-eye"></i>', array('title'=>'read','class'=>'btn btn-info btn-sm'));?>
-			<?php echo anchor("auth/edit_user/".$user->id, '<i class="fa fa-pencil-square-o"></i>', array('title'=>'update','class'=>'btn btn-warning btn-sm'));?>
-			<?php echo anchor("auth/delete_user/".$user->id, '<i class="fa fa-trash"></i>', 'title="delete" class="btn btn-danger btn-sm" onclick="javascript: return confirm(\'Are You Sure ?\')"');?>
-			</td>
+			<?php	
+			echo anchor("auth/read_user/".$user->id, '<i class="fa fa-eye"></i>', array('title'=>'read','class'=>'btn btn-info btn-sm'));
+			echo '&nbsp;';  
+			echo anchor("auth/edit_user/".$user->id, '<i class="fa fa-pencil-square-o"></i>', array('title'=>'update','class'=>'btn btn-warning btn-sm'));
+			echo '&nbsp;';  
+			echo anchor("auth/delete_user/".$user->id, '<i class="fa fa-trash"></i>', array('title'=>'delete','class'=>'btn btn-danger btn-sm', 'id'=>$user->id));?></td>
 		</tr>
+        <script type="text/javascript"> 
+        $("#<?php echo $user->id;?>").on("click", function (e) {
+            e.preventDefault();
+            swal({
+              title: "Are you sure?",
+              text: "Data <?php echo $user->username;?> will be deleted!",
+              icon: "error",
+              buttons: true,
+              dangerMode: true,
+            })
+            .then(function(deleteData) {
+              if (deleteData) {
+                window.location.href = $('#<?php echo $user->id;?>').attr('href');
+              } 
+            });
+        });
+        </script>
 	<?php endforeach;?>
 	</tbody>
 </table>

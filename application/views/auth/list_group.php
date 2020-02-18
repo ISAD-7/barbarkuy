@@ -38,11 +38,30 @@
             <td><?php echo htmlspecialchars($group->name,ENT_QUOTES,'UTF-8');?></td>
             <td><?php echo htmlspecialchars($group->description,ENT_QUOTES,'UTF-8');?></td>
 			<td class="text-center" width="140px">
-			<?php echo anchor("auth/read_group/".$group->id, '<i class="fa fa-eye"></i>', array('title'=>'read','class'=>'btn btn-info btn-sm'));?>
-			<?php echo anchor("auth/edit_group/".$group->id, '<i class="fa fa-pencil-square-o"></i>', array('title'=>'update','class'=>'btn btn-warning btn-sm'));?>
-			<?php echo anchor("auth/delete_group/".$group->id, '<i class="fa fa-trash"></i>', 'title="delete" class="btn btn-danger btn-sm" onclick="javascript: return confirm(\'Are You Sure ?\')"');?>
-			</td>
+			<?php 
+			echo anchor("auth/read_group/".$group->id, '<i class="fa fa-eye"></i>', array('title'=>'read','class'=>'btn btn-info btn-sm'));
+			echo '&nbsp;'; 
+			echo anchor("auth/edit_group/".$group->id, '<i class="fa fa-pencil-square-o"></i>', array('title'=>'update','class'=>'btn btn-warning btn-sm'));
+			echo '&nbsp;'; 
+			echo anchor("auth/delete_group/".$group->id, '<i class="fa fa-trash"></i>', array('title'=>'delete','class'=>'btn btn-danger btn-sm', 'id'=>$group->id));?></td>
 		</tr>
+        <script type="text/javascript"> 
+        $("#<?php echo $group->id;?>").on("click", function (e) {
+            e.preventDefault();
+            swal({
+              title: "Are you sure?",
+              text: "Data <?php echo $group->name;?> will be deleted!",
+              icon: "error",
+              buttons: true,
+              dangerMode: true,
+            })
+            .then(function(deleteData) {
+              if (deleteData) {
+                window.location.href = $('#<?php echo $group->id;?>').attr('href');
+              } 
+            });
+        });
+        </script>
 	<?php endforeach;?>
 	</tbody>
 </table>

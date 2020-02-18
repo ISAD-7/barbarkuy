@@ -34,7 +34,7 @@ $string .= "\n\t\t\t\t    <th class=\"text-center\">Action</th>
 $string .= "\n\t\t\t<tbody>
             <?php
             \$start = 0;
-            foreach ($" . $c_url . "_data as \$$c_url){?>
+            foreach ($" . $c_url . "_data as \$$c_url) { ?>
                 <tr>";
 
 $string .= "\n\t\t\t\t    <td><?php echo ++\$start ?></td>";
@@ -48,12 +48,28 @@ $string .= "\n\t\t\t\t    <td style=\"text-align:center\" width=\"140px\">"
         . "\n\t\t\t\t    echo '&nbsp;'; "
         . "\n\t\t\t\t    echo anchor(site_url('".$c_url."/update_".$c_url."/'.$".$c_url."->".$pk."),'<i class=\"fa fa-pencil-square-o\"></i>',array('title'=>'edit','class'=>'btn btn-warning btn-sm')); "
         . "\n\t\t\t\t    echo '&nbsp;'; "
-        . "\n\t\t\t\t    ?>"
-        . "\n\t\t\t\t    <button title=\"delete\" class=\"btn btn-danger btn-sm\" data-toggle=\"modal\" data-target=\"#confirm-delete\"><i class=\"fa fa-trash-o\"></i></button> "
+        . "\n\t\t\t\t    echo anchor(site_url('".$c_url."/delete_".$c_url."/'.$".$c_url."->".$pk."),'<i class=\"fa fa-trash-o\"></i>',array('title'=>'delete','class'=>'btn btn-danger btn-sm', 'id'=>\$".$c_url."->".$pk.")); ?> "
         . "\n\t\t\t\t    </td>"
 
         . "\n\t\t\t    </tr>
-        \t<?php confirm('".$c_url."/delete_".$c_url."/'.$".$c_url."->".$pk.", 'confirm-delete', 'btn-delete', 'Anda yakin ingin hapus data ini ?', 'Peringatan !'); }?>
+        \t\t<script type=\"text/javascript\"> 
+                \$(\"#<?php echo \$".$c_url."->".$pk.";?>\").on(\"click\", function (e) {
+                    e.preventDefault();
+                    swal({
+                      title: \"Are you sure?\",
+                      text: \"Data with #ID<?php echo \$" . $c_url ."->". $pk . ";?> will be deleted!\",
+                      icon: \"error\",
+                      buttons: true,
+                      dangerMode: true,
+                    })
+                    .then(function(delete".ucfirst($c_url).") {
+                      if (delete".ucfirst($c_url).") {
+                        window.location.href = \$('#<?php echo \$".$c_url."->".$pk.";?>').attr('href');
+                      } 
+                    });
+                });
+                </script>
+                <?php } ?>
         \t</tbody>
         </table>
 

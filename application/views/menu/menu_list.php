@@ -49,13 +49,28 @@
 				    echo anchor(site_url('menu/read_menu/'.$menu->id),'<i class="fa fa-eye"></i>',array('title'=>'detail','class'=>'btn btn-info btn-sm')); 
 				    echo '&nbsp;'; 
 				    echo anchor(site_url('menu/update_menu/'.$menu->id),'<i class="fa fa-pencil-square-o"></i>',array('title'=>'edit','class'=>'btn btn-warning btn-sm')); 
-				    echo '&nbsp;'; 
-                    ?>
-				    <button title="delete" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash-o"></i></button>
-				    </td>
-			    </tr>
-        	<?php confirm('menu/delete_menu/'.$menu->id, 'confirm-delete', 'btn-delete', 'Anda ingin hapus data '.$menu->name.' ini ?', 'Peringatan !'); } ?>
-        	</tbody>
+                    echo '&nbsp;';
+				    echo anchor(site_url('menu/delete_menu/'.$menu->id),'<i class="fa fa-trash-o"></i>',array('title'=>'delete','class'=>'btn btn-danger btn-sm', 'id'=>$menu->id));?></td>
+                </tr>
+                <script type="text/javascript"> 
+                $("#<?php echo $menu->id;?>").on("click", function (e) {
+                    e.preventDefault();
+                    swal({
+                      title: "Are you sure?",
+                      text: "Data <?php echo $menu->name;?> will be deleted!",
+                      icon: "error",
+                      buttons: true,
+                      dangerMode: true,
+                    })
+                    .then(function(deleteData) {
+                      if (deleteData) {
+                        window.location.href = $('#<?php echo $menu->id;?>').attr('href');
+                      } 
+                    });
+                });
+                </script>
+            <?php } ?> 
+            </tbody>
         </table>
 
         </div><!-- /.box-body -->
